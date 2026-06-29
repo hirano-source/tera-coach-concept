@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TERAコーチスクール コンセプト図解 | 4Cで物語るインサイト型ストーリー</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f172a; --ink2:#1e293b; --muted:#64748b; --line:#e8edf3; --bg:#ffffff; --soft:#f8fafc;
+    --blue:#2563eb; --blue-bg:#eef3ff; --blue-bd:#dbe4ff;
+    --orange:#ea580c; --orange-bg:#fff4ec; --orange-bd:#fbd9be;
+    --green:#16a34a; --green-bg:#ecfdf3; --green-bd:#c6e9cf;
+    --purple:#9333ea; --purple-bg:#f8f3ff; --purple-bd:#e7d9ff;
+    --red:#dc2626; --red-bg:#fef2f2; --red-bd:#fbd2d2;
+    --radius:18px; --shadow:0 1px 3px rgba(15,23,42,.06),0 8px 24px rgba(15,23,42,.05);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Noto Sans JP",system-ui,-apple-system,sans-serif;line-height:1.8;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px;}
+  .topbar{position:sticky;top:0;z-index:50;display:flex;justify-content:flex-end;
+    padding:12px 22px;background:rgba(255,255,255,.82);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .pdfbtn{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:#fff;
+    color:var(--muted);font-size:13px;font-weight:700;padding:7px 14px;border-radius:999px;cursor:pointer;font-family:inherit;}
+  .pdfbtn:hover{color:var(--blue);border-color:var(--blue-bd);}
+
+  /* hero */
+  .hero{text-align:center;padding:64px 22px 26px;}
+  .badge{display:inline-flex;align-items:center;gap:7px;background:var(--blue-bg);color:var(--blue);
+    font-weight:700;font-size:13px;padding:7px 16px;border-radius:999px;}
+  .hero h1{font-size:clamp(30px,6vw,52px);font-weight:900;letter-spacing:-.01em;margin:22px 0 14px;line-height:1.25;}
+  .hero .sub{color:var(--muted);font-size:clamp(15px,2.4vw,19px);font-weight:500;}
+  .hero .sub b{color:var(--ink2);}
+
+  /* summary card */
+  .summary{border:1px solid var(--line);border-radius:26px;background:var(--soft);
+    padding:40px 30px;margin:14px 0 30px;box-shadow:var(--shadow);}
+  .summary h2{text-align:center;font-size:clamp(22px,4vw,30px);font-weight:900;margin:0 0 8px;}
+  .summary h2 .hi{color:var(--blue);}
+  .summary .lead{text-align:center;color:var(--muted);margin:0 0 26px;font-weight:500;}
+  .tri{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:6px;}
+  .tcard{border-radius:16px;padding:20px 16px;text-align:center;border:1px solid;}
+  .tcard.pain{background:var(--red-bg);border-color:var(--red-bd);}
+  .tcard.warn{background:var(--orange-bg);border-color:var(--orange-bd);}
+  .tcard.ans{background:var(--green-bg);border-color:var(--green-bd);}
+  .ticon{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;}
+  .pain .ticon{background:#fde2e2;color:var(--red);}
+  .warn .ticon{background:#fde4cf;color:var(--orange);}
+  .ans .ticon{background:#cdeed6;color:var(--green);}
+  .tcard h3{font-size:16px;margin:0 0 7px;font-weight:700;}
+  .pain h3{color:#b91c1c;} .warn h3{color:#c2410c;} .ans h3{color:#15803d;}
+  .tcard p{font-size:13px;color:var(--muted);margin:0;line-height:1.7;}
+  .arrow{display:flex;align-items:center;justify-content:center;color:#cbd5e1;font-size:20px;}
+  .corediv{text-align:center;color:#94a3b8;font-size:12px;font-weight:700;letter-spacing:.12em;
+    margin:26px 0 16px;position:relative;}
+  .corediv::before,.corediv::after{content:"";position:absolute;top:50%;width:30%;height:1px;background:var(--line);}
+  .corediv::before{left:0;} .corediv::after{right:0;}
+  .corecard{max-width:520px;margin:0 auto;border:1px solid var(--blue-bd);background:#fff;border-radius:18px;
+    padding:24px;text-align:center;}
+  .corecard .k{color:var(--blue);font-weight:700;font-size:12px;letter-spacing:.1em;margin-bottom:8px;}
+  .corecard .t{font-size:clamp(20px,3.6vw,26px);font-weight:900;margin:0 0 8px;}
+  .corecard .d{color:var(--muted);font-size:14px;margin:0;}
+
+  /* section */
+  section{padding:30px 0;}
+  .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+  .sec-ic{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .sec-head h2{font-size:clamp(21px,3.4vw,28px);font-weight:900;margin:0;letter-spacing:-.01em;}
+  .sec-intro{color:var(--ink2);font-size:15px;margin:0 0 18px;}
+  .sec-intro b{font-weight:700;}
+  .ic-blue{background:var(--blue-bg);color:var(--blue);}
+  .ic-orange{background:var(--orange-bg);color:var(--orange);}
+  .ic-green{background:var(--green-bg);color:var(--green);}
+  .ic-purple{background:var(--purple-bg);color:var(--purple);}
+  .ic-slate{background:#eef2f7;color:#475569;}
+
+  .panel{border:1px solid var(--line);border-radius:var(--radius);background:var(--soft);padding:26px;box-shadow:var(--shadow);}
+  .panel-title{font-weight:700;font-size:17px;margin:0 0 18px;}
+
+  /* 4C timeline */
+  .tl{display:flex;flex-direction:column;gap:0;}
+  .tlrow{display:flex;gap:16px;}
+  .tldot{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;}
+  .dot{width:46px;height:46px;border-radius:50%;color:#fff;font-weight:700;font-size:13px;
+    display:flex;align-items:center;justify-content:center;}
+  .line{flex:1;width:2px;border-left:2px dotted #cbd5e1;margin:4px 0;min-height:14px;}
+  .c1 .dot{background:var(--blue);} .c2 .dot{background:var(--orange);}
+  .c3 .dot{background:var(--green);} .c4 .dot{background:var(--purple);}
+  .tlbody{flex:1;border-radius:14px;padding:14px 18px;margin-bottom:12px;border:1px solid;}
+  .c1 .tlbody{background:var(--blue-bg);border-color:var(--blue-bd);}
+  .c2 .tlbody{background:var(--orange-bg);border-color:var(--orange-bd);}
+  .c3 .tlbody{background:var(--green-bg);border-color:var(--green-bd);}
+  .c4 .tlbody{background:var(--purple-bg);border-color:var(--purple-bd);}
+  .tlbody .h{font-weight:700;font-size:15px;margin:0 0 3px;}
+  .c1 .tlbody .h{color:var(--blue);} .c2 .tlbody .h{color:var(--orange);}
+  .c3 .tlbody .h{color:var(--green);} .c4 .tlbody .h{color:var(--purple);}
+  .tlbody .d{color:var(--muted);font-size:13.5px;margin:0;}
+
+  /* persona */
+  .persona{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start;}
+  .pavatar{text-align:center;}
+  .pavatar .circ{width:74px;height:74px;border-radius:50%;background:var(--blue-bg);color:var(--blue);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 10px;}
+  .pavatar .nm{font-weight:700;font-size:16px;}
+  .pavatar .role{color:var(--muted);font-size:12px;}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .field{border:1px solid var(--line);border-radius:12px;background:#fff;padding:11px 14px;}
+  .field .l{color:var(--muted);font-size:11px;margin-bottom:2px;}
+  .field .v{font-weight:700;font-size:14.5px;}
+  .field.wide{grid-column:1 / -1;}
+
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;}
+  .vs > div{padding:20px;}
+  .vs .left{border-right:1px solid var(--line);}
+  .chiplbl{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:13px;
+    padding:5px 12px;border-radius:999px;margin-bottom:12px;}
+  .chiplbl.grey{background:#f1f5f9;color:#475569;}
+  .chiplbl.blue{background:var(--blue-bg);color:var(--blue);}
+  .vs p{margin:0;font-size:14px;color:var(--ink2);}
+  .vs p b{font-weight:700;}
+
+  .hyp{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:14px;}
+  .hcard{border:1px solid var(--blue-bd);background:var(--blue-bg);border-radius:13px;padding:15px;}
+  .hcard .tag{font-weight:700;color:var(--blue);font-size:12px;margin-bottom:6px;}
+  .hcard .q{font-weight:700;font-size:14.5px;margin:0 0 5px;line-height:1.5;}
+  .hcard .n{color:var(--muted);font-size:12px;margin:0;}
+
+  .callout{border-radius:14px;padding:18px 20px;margin-top:18px;border:1px solid;display:flex;gap:13px;}
+  .callout .ci{flex:0 0 auto;width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;}
+  .callout .ct{font-weight:700;font-size:15px;margin:0 0 4px;}
+  .callout p{margin:0;font-size:13.5px;color:var(--ink2);line-height:1.75;}
+  .callout p b{font-weight:700;}
+  .co-blue{background:var(--blue-bg);border-color:var(--blue-bd);} .co-blue .ci{background:#dbe4ff;color:var(--blue);} .co-blue .ct{color:var(--blue);}
+  .co-orange{background:var(--orange-bg);border-color:var(--orange-bd);} .co-orange .ci{background:#fbd9be;color:var(--orange);} .co-orange .ct{color:var(--orange);}
+  .co-green{background:var(--green-bg);border-color:var(--green-bd);} .co-green .ci{background:#c6e9cf;color:var(--green);} .co-green .ct{color:var(--green);}
+  .co-red{background:var(--red-bg);border-color:var(--red-bd);} .co-red .ci{background:#fbd2d2;color:var(--red);} .co-red .ct{color:var(--red);}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .mini{border:1px solid var(--line);border-radius:13px;background:#fff;padding:18px;}
+  .mini .mh{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;margin-bottom:8px;}
+  .mini p{margin:0 0 10px;font-size:13.5px;color:var(--ink2);}
+  .mini .axis{display:inline-flex;align-items:center;gap:6px;color:var(--orange);font-weight:700;font-size:12.5px;}
+
+  .bignum{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px;}
+  .bn{border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center;background:#fff;}
+  .bn.good{background:var(--green-bg);border-color:var(--green-bd);}
+  .bn .cap{color:var(--muted);font-size:12px;}
+  .bn .big{font-size:34px;font-weight:900;line-height:1.1;margin:4px 0;}
+  .bn.good .big{color:var(--green);} .bn .big{color:#94a3b8;}
+  .bn .note{font-size:12.5px;font-weight:700;}
+  .bn .bad{color:var(--red);} .bn .ok{color:var(--green);}
+
+  .conceptbig{border:1px solid var(--purple-bd);background:var(--purple-bg);border-radius:20px;padding:38px 26px;text-align:center;}
+  .conceptbig .k{color:var(--purple);font-weight:700;font-size:13px;letter-spacing:.08em;margin-bottom:12px;}
+  .conceptbig .t{font-size:clamp(26px,5vw,40px);font-weight:900;margin:0 0 14px;letter-spacing:-.01em;}
+  .conceptbig .d{color:var(--muted);font-size:14.5px;max-width:560px;margin:0 auto;}
+
+  /* concept sheet */
+  .sheet{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .scard{border:1px solid var(--line);border-radius:16px;background:#fff;padding:20px;}
+  .scard.full{grid-column:1 / -1;}
+  .scard .ey{display:flex;align-items:center;gap:9px;margin-bottom:10px;}
+  .scard .eytx{font-weight:700;font-size:11px;letter-spacing:.08em;color:var(--muted);}
+  .scard .eyjp{font-weight:700;font-size:15px;}
+  .scard .body{font-size:14px;color:var(--ink2);}
+  .scard .body b{font-weight:700;}
+  .sub-be{border-top:1px solid var(--line);padding-top:12px;margin-top:12px;}
+  .sub-be .fact{color:var(--muted);font-size:12.5px;margin-top:4px;}
+  .sub-be .fact b{color:#475569;}
+  .be-arrow{display:flex;align-items:center;gap:14px;}
+  .be-arrow .a{color:#cbd5e1;font-size:20px;}
+
+  /* 3 layer */
+  .layers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+  .ly{border-radius:14px;padding:18px;border:1px solid;}
+  .ly.l1{background:var(--blue-bg);border-color:var(--blue-bd);}
+  .ly.l2{background:var(--green-bg);border-color:var(--green-bd);}
+  .ly.l3{background:#13322b;border-color:#13322b;color:#eaf0e6;}
+  .ly .lh{font-weight:700;font-size:15px;margin-bottom:6px;}
+  .ly.l1 .lh{color:var(--blue);} .ly.l2 .lh{color:var(--green);} .ly.l3 .lh{color:#ebd9a6;}
+  .ly p{margin:0;font-size:13px;}
+  .ly.l3 p{color:#cfe0c8;}
+
+  /* summary cards (まとめ) */
+  .sumcard{border:1px solid var(--line);border-radius:14px;background:#fff;padding:16px 20px;margin-bottom:12px;border-left-width:5px;}
+  .sumcard.s1{border-left-color:var(--blue);} .sumcard.s2{border-left-color:var(--orange);}
+  .sumcard.s3{border-left-color:var(--green);} .sumcard.s4{border-left-color:var(--purple);}
+  .sumcard .sh{font-weight:700;font-size:15px;margin:0 0 3px;}
+  .sumcard .sh .cc{font-weight:900;margin-right:8px;}
+  .s1 .cc{color:var(--blue);} .s2 .cc{color:var(--orange);} .s3 .cc{color:var(--green);} .s4 .cc{color:var(--purple);}
+  .sumcard p{margin:0;font-size:13.5px;color:var(--muted);}
+
+  .essence{border:1px solid var(--line);border-radius:20px;background:var(--soft);padding:34px;text-align:center;margin-top:16px;box-shadow:var(--shadow);}
+  .essence .fl{width:42px;height:42px;border-radius:12px;background:var(--blue-bg);color:var(--blue);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
+  .essence h3{font-size:20px;font-weight:900;margin:0 0 12px;}
+  .essence p{margin:0;color:var(--ink2);font-size:14.5px;max-width:620px;margin:0 auto;}
+  .essence p b{font-weight:700;}
+
+  .foot{color:#94a3b8;font-size:11.5px;text-align:center;padding:30px 22px 50px;line-height:1.8;}
+  .badge-hyp{display:inline-block;background:#fef3c7;color:#b45309;font-weight:700;font-size:11px;padding:2px 9px;border-radius:999px;vertical-align:middle;margin-left:8px;}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media (max-width:760px){
+    .tri{grid-template-columns:1fr;} .arrow{transform:rotate(90deg);}
+    .persona{grid-template-columns:1fr;} .pgrid{grid-template-columns:1fr;}
+    .vs{grid-template-columns:1fr;} .vs .left{border-right:none;border-bottom:1px solid var(--line);}
+    .hyp{grid-template-columns:1fr;} .two,.bignum,.sheet,.layers{grid-template-columns:1fr;}
+    .be-arrow{flex-direction:column;} .be-arrow .a{transform:rotate(90deg);}
+  }
+  @media print{.topbar{display:none;} body{font-size:12px;} .reveal{opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><button class="pdfbtn" onclick="window.print()">⤓ PDF / 印刷</button></div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero reveal">
+    <span class="badge">◎ コンセプト設計</span>
+    <h1>SNS集客装置を作って、<br>一足先にゴルフ業界で抜け駆けろ。</h1>
+    <p class="sub">「食えてはいる。<b>でも、将来が不安</b>」。<br>その不安を消す答えは ──</p>
+  </header>
+
+  <!-- SUMMARY -->
+  <div class="summary reveal">
+    <h2>不安を、<span class="hi">集客に困らない仕組み</span>に変える</h2>
+    <p class="lead">他のコーチが気づく前に、SNS集客の仕組みを持って先行する</p>
+    <div class="tri">
+      <div class="tcard pain">
+        <div class="ticon">◴</div>
+        <h3>コーチの不安</h3>
+        <p>食えてはいる。でもゴルファーは減り、集客は不安定。将来が不安</p>
+      </div>
+      <div class="arrow">→</div>
+      <div class="tcard warn">
+        <div class="ticon">⚠</div>
+        <h3>競合の盲点</h3>
+        <p>PGA・USGTFは指導だけ、マーケコンサルは集客だけ。装置の作り方を誰も教えない</p>
+      </div>
+      <div class="arrow">→</div>
+      <div class="tcard ans">
+        <div class="ticon">✓</div>
+        <h3>スクールの答え</h3>
+        <p>SNS集客を実際にやり切った型で、自分の集客装置を作らせる</p>
+      </div>
+    </div>
+    <div class="corediv">コアコンセプト</div>
+    <div class="corecard">
+      <div class="k">CONCEPT</div>
+      <div class="t">SNS集客装置を作って、一足先にゴルフ業界で抜け駆けろ</div>
+      <p class="d">将来の不安を、集客に困らないSNS集客装置で解消する。動いた者から先行する</p>
+    </div>
+  </div>
+
+  <!-- 4C INTRO -->
+  <section class="reveal">
+    <div class="sec-head">
+      <div class="sec-ic ic-slate">▦</div>
+      <h2>4Cで物語るインサイト型ストーリー</h2>
+    </div>
+    <p class="sec-intro">4Cフレームワーク（Customer・Competitor・Company・Concept）は、<b>「なぜこのスクールが必要なのか」を論理的に語るための設計図</b>です。コーチのリアルな悩みから出発し、競合の盲点を突き、自社だけの強みで解決する ── この一本の線が「インサイト型ストーリー」です。</p>
+    <div class="panel">
+      <p class="panel-title">4Cの流れ</p>
+      <div class="tl">
+        <div class="tlrow c1"><div class="tldot"><div class="dot">C1</div><div class="line"></div></div>
+          <div class="tlbody"><p class="h">CUSTOMER ｜ 顧客インサイト</p><p class="d">コーチが本当に困っていること（言葉にされていない本音の欲求）</p></div></div>
+        <div class="tlrow c2"><div class="tldot"><div class="dot">C2</div><div class="line"></div></div>
+          <div class="tlbody"><p class="h">COMPETITOR ｜ 競合の限界</p><p class="d">資格（PGA・USGTF等）も集客コンサルも、本質的な集客は生んでいない</p></div></div>
+        <div class="tlrow c3"><div class="tldot"><div class="dot">C3</div><div class="line"></div></div>
+          <div class="tlbody"><p class="h">COMPANY ｜ 自社だけの強み</p><p class="d">YouTube中心にSNS集客の動線を組み、スクール運営まで成立させた唯一の存在</p></div></div>
+        <div class="tlrow c4"><div class="tldot"><div class="dot">C4</div></div>
+          <div class="tlbody"><p class="h">CONCEPT ｜ 新しい意味</p><p class="d">SNS集客装置を作って、一足先にゴルフ業界で抜け駆けろ</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- C1 -->
+  <section class="reveal">
+    <div class="sec-head"><div class="sec-ic ic-blue">👤</div><h2>C1 — CUSTOMER インサイト</h2></div>
+    <p class="sec-intro">インサイト（洞察）とは、コーチが「言葉にしていない本音の欲求」のことです。表面の「悩み」を掘り下げると、行動を動かす本当の感情が見えてきます。</p>
+    <div class="panel" style="margin-bottom:16px;">
+      <p class="panel-title" style="color:var(--muted);font-size:12px;letter-spacing:.06em;">ターゲットペルソナ</p>
+      <div class="persona">
+        <div class="pavatar"><div class="circ">⛳</div><div class="nm">20〜30代</div><div class="role">ゴルフ業界のコーチ</div></div>
+        <div class="pgrid">
+          <div class="field"><div class="l">経済状況</div><div class="v">月20〜30万。生活はできている</div></div>
+          <div class="field"><div class="l">今の状態</div><div class="v">お客さんはいる／体力もある</div></div>
+          <div class="field"><div class="l">将来の不安</div><div class="v">斜陽産業・集客不安定・単価が上がらない</div></div>
+          <div class="field"><div class="l">象徴する問い</div><div class="v">60歳でもこの業界で生き残れるか</div></div>
+          <div class="field wide"><div class="l">内なる動機</div><div class="v">「この先も、ゴルフで食べていきたい」</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <p class="panel-title">インサイト ── 本音</p>
+      <div class="conceptbig" style="background:var(--blue-bg);border-color:var(--blue-bd);padding:30px 22px;">
+        <div class="k" style="color:var(--blue);">INSIGHT</div>
+        <div class="t" style="font-size:clamp(24px,4.6vw,38px);">「食えるけど、将来が不安」</div>
+      </div>
+      <div class="vs" style="margin-top:16px;">
+        <div class="left">
+          <span class="chiplbl grey">食える（今）</span>
+          <p style="line-height:2;">・月20〜30万は稼げ、生活はできている<br>・今はお客さんがいる<br>・20〜30代で、まだ体力がある</p>
+        </div>
+        <div class="right">
+          <span class="chiplbl blue">将来が不安</span>
+          <p style="line-height:2;">・ゴルファーが減る斜陽産業という不安<br>・集客が安定しない<br>・上げたくても単価を上げられない</p>
+        </div>
+      </div>
+      <div class="callout co-blue" style="margin-top:16px;">
+        <div class="ci">⚡</div>
+        <div><p class="ct">不安の核心</p><p>「このまま続けて、この仕事で生計を立てられるのか。<b>40・50・60歳になっても、ゴルフ業界で生き残れるのか</b>」── 今は食えているからこそ、見ないようにしている将来への不安。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- C2 -->
+  <section class="reveal">
+    <div class="sec-head"><div class="sec-ic ic-orange">⚔</div><h2>C2 — COMPETITOR 競合の盲点</h2></div>
+    <p class="sec-intro">競合分析では「競合が何をしているか」ではなく、<b>「競合が解決できていない問題は何か」</b>を見つけることが重要です。コーチが頼る先は2種類 ── どちらも<b>本質的に集客を生む力はありません</b>。</p>
+    <div class="panel">
+      <p class="panel-title">コーチが頼る先（競合マップ）</p>
+      <div class="two">
+        <div class="mini"><div class="mh">🎓 ティーチングプロ資格（PGA・USGTF等）</div><p>レッスンの理論・ノウハウを教え、「資格」を認定する。<b>「これを集客に使ってね」</b>という建て付け。だが資格で集客できている人を見たことがない。</p><span class="axis">肩書きは与える／集客は生まない</span></div>
+        <div class="mini"><div class="mh">📈 集客マーケコンサル・セミナー</div><p>一般的な集客マーケティングを教える。だが<b>ゴルフ業界で本質的に集客できる</b>コンサルやセミナーは存在しない。机上で終わる。</p><span class="axis">語れる／業界では機能しない</span></div>
+      </div>
+      <div class="callout co-red" style="margin-top:14px;">
+        <div class="ci">✕</div>
+        <div><p class="ct">本質的な集客 — 誰も提供できていない盲点</p><p>「肩書き無しでやるのは不安」だから資格は一応成り立っている。でも<b>資格も一般論コンサルも、実際に集客を生んではいない。</b>「ゴルフ業界で、本当に集客できるSNS装置の作り方」を教えられる人がいない。</p></div>
+      </div>
+      <div class="callout co-orange">
+        <div class="ci">💡</div>
+        <div><p class="ct">競合分析のポイント</p><p>資格は安心を、コンサルは一般論を売る。だが<b>「ゴルフ業界で実際に回るSNS集客」は、どちらも提供できていない</b>。この空白地帯が、スクールの勝ち筋です。先に作った者が抜け駆けできます。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- C3 -->
+  <section class="reveal">
+    <div class="sec-head"><div class="sec-ic ic-green">🛡</div><h2>C3 — COMPANY 自社だけのベネフィット</h2></div>
+    <p class="sec-intro">C1（将来の不安）とC2（誰も装置を教えない）を踏まえて、自社だけが提供できる解決策を明確にします。ここでの「ベネフィット」は技術ではなく、<b>受講生が手にする“自分のSNS集客装置”という変化・体験</b>です。</p>
+    <div class="panel">
+      <div class="mini" style="background:var(--green-bg);border-color:var(--green-bd);margin-bottom:16px;">
+        <div class="mh" style="color:var(--green);">⚙ コア ── 集客に困らない「SNS集客装置」の考え方</div>
+        <p style="margin:0;">資格やレッスン理論を伝えるだけでなく、<b>SNS（特にYouTube）で集客に困らなくなる戦略の考え方</b>そのものを渡す。</p>
+      </div>
+      <p style="font-weight:700;font-size:14px;margin:0 0 10px;">なぜ装置の作り方を教えられるのか ── 実際に作って、回してきた</p>
+      <div class="two" style="margin-bottom:16px;">
+        <div class="mini"><div class="mh">📱 SNS集客を“やり切った”</div><p style="margin:0;">YouTubeを中心に、<b>フォロワー増 → 集客 → 売上 → 利益</b>の動線を実際に組んで回してきた。リアルな話ができる。</p></div>
+        <div class="mini"><div class="mh">🏫 スクール運営まで成立</div><p style="margin:0;">3店舗を立ち上げ全店初年度黒字。<b>集客が事業として回る</b>ところまでやり切った。</p></div>
+      </div>
+      <div class="callout co-green" style="margin-top:0;margin-bottom:16px;">
+        <div class="ci">◎</div>
+        <div><p class="ct">これが競合に出せない一点</p><p>資格は肩書き、コンサルは一般論。<b>YouTubeを中心にSNS集客の動線を実際に組み、事業として成立させた</b>のは自社だけ。だから机上でなく「現に回る装置」の考え方を渡せる。</p></div>
+      </div>
+      <div class="bignum">
+        <div class="bn"><div class="cap">一般のコーチ（その都度集客）</div><div class="big">10万人<span style="font-size:18px;">→月20万</span></div><div class="note bad">↗ 数はあっても先が不安</div></div>
+        <div class="bn good"><div class="cap">てらゆー（装置が回る）</div><div class="big">5,000人<span style="font-size:18px;">→月100万</span></div><div class="note ok">✓ 少ない客でも安定して伸びる</div></div>
+      </div>
+      <div class="mini" style="margin-top:14px;"><p style="margin:0;">差は規模じゃない。<b>「集客の動線（装置）があるか」</b>。フォロワーを売上・利益までつなぐ動線を、実体験から教えられる。</p></div>
+      <div class="callout co-green">
+        <div class="ci">💡</div>
+        <div><p class="ct">ベネフィット設計のポイント</p><p>「SNS集客装置」は手段の話。受講生に伝えるべきは<b>「集客に困らなくなる＝将来の不安が消える」という体験</b>です。機能ではなく、その先の安心を語ることが核心です。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- C4 -->
+  <section class="reveal">
+    <div class="sec-head"><div class="sec-ic ic-purple">✦</div><h2>C4 — CONCEPT 新しい意味</h2></div>
+    <p class="sec-intro">コンセプトとは、C1・C2・C3を<b>1行に圧縮した「スクールの新しい価値定義」</b>です。受講生が「自分ごと」として受け取れる言葉で、存在意義を語ります。</p>
+    <div class="conceptbig" style="margin-bottom:18px;">
+      <div class="k">TERAコーチスクール コンセプト</div>
+      <div class="t">SNS集客装置を作って、<br>一足先にゴルフ業界で抜け駆けろ</div>
+      <p class="d">SNSで集客するのは、もう一般的になりつつある。でも<b>ゴルフ業界では、SNSを使いこなして集客できている人はまだ少ない</b>。しかも自社がそれを一番体現している。── 今なら、先に動いた者が業界で抜け駆けできる。</p>
+    </div>
+    <div class="panel">
+      <p class="panel-title">なぜこのコンセプトが成立するか</p>
+      <div class="tl">
+        <div class="tlrow c1"><div class="tldot"><div class="dot">C1</div><div class="line"></div></div><div class="tlbody"><p class="h">CUSTOMER</p><p class="d">「食えてはいるが、将来が不安。集客が安定しない」</p></div></div>
+        <div class="tlrow c2"><div class="tldot"><div class="dot">C2</div><div class="line"></div></div><div class="tlbody"><p class="h">COMPETITOR</p><p class="d">「資格もコンサルも、ゴルフ業界で本質的な集客は生んでいない」</p></div></div>
+        <div class="tlrow c3"><div class="tldot"><div class="dot">C3</div><div class="line"></div></div><div class="tlbody"><p class="h">COMPANY</p><p class="d">「YouTube中心に集客の動線を組み、事業まで成立させた」</p></div></div>
+        <div class="tlrow c4"><div class="tldot"><div class="dot">C4</div></div><div class="tlbody"><p class="h">CONCEPT</p><p class="d">「SNS集客装置を作って、一足先にゴルフ業界で抜け駆けろ」</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCEPT SHEET -->
+  <section class="reveal">
+    <div class="sec-head"><div class="sec-ic ic-slate">▤</div><h2>コンセプトシート</h2></div>
+    <p class="sec-intro">4Cで導いた方向性をもとに、<b>「誰に・何を・なぜ・どんな体験で・どんな便益で」を一枚に整理した設計書</b>です。スクールのすべてのコミュニケーションの土台になります。</p>
+    <div class="sheet">
+      <div class="scard"><div class="ey"><span class="eytx">TARGET</span></div><div class="eyjp" style="margin-bottom:8px;">ターゲット</div><div class="body">独立済みで食えてはいるが、将来が不安なコーチ。集客の技術はあっても、事業の設計がない。</div></div>
+      <div class="scard"><div class="ey"><span class="eytx">INSIGHT</span></div><div class="eyjp" style="margin-bottom:8px;">インサイト（本音）</div><div class="body">「<b>食えるけど、将来が不安</b>」── 今は食えている。でもゴルファーは減り、集客は安定せず、単価も上げられない。</div></div>
+      <div class="scard full"><div class="ey"><span class="eytx" style="color:var(--purple);">CONCEPT</span></div><div class="eyjp" style="font-size:22px;font-weight:900;margin-bottom:4px;">SNS集客装置を作って、一足先にゴルフ業界で抜け駆けろ</div><div class="body">集客に困らないSNS集客装置を、他のコーチより先に持つ。</div></div>
+      <div class="scard full">
+        <div class="ey"><span class="eytx" style="color:var(--green);">KEY BENEFIT</span></div><div class="eyjp" style="margin-bottom:12px;">中心便益</div>
+        <div class="be-arrow">
+          <div class="mini" style="flex:1;"><div style="color:var(--muted);font-size:11px;font-weight:700;">BENEFIT</div><div style="font-weight:700;font-size:15px;">自分のSNS集客装置を持てる＝集客に困らなくなる</div></div>
+          <div class="a">→</div>
+          <div class="mini" style="flex:1;"><div style="color:var(--muted);font-size:11px;font-weight:700;">FACT（根拠）</div><div style="font-size:14px;color:var(--ink2);">てらゆーは装置を回して<b>5,000人で月100万</b>・3店舗黒字を実証</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- sub benefit -->
+    <div class="panel" style="margin-top:14px;">
+      <p class="panel-title">サブベネフィット</p>
+      <div class="sub-be" style="border-top:none;padding-top:0;margin-top:0;">
+        <div style="font-weight:700;">① 集客に困らなくなる分、指導とコンテンツに集中できる</div>
+        <div class="fact"><b>FACT：</b>来てほしい予備軍だけが集まる装置で、毎回の集客から解放される。</div>
+      </div>
+      <div class="sub-be">
+        <div style="font-weight:700;">② 装置の作り方を“型”で学べるから、再現性が高い</div>
+        <div class="fact"><b>FACT：</b>前撮り動画＋受講生ワークの3層構造（真子さんのAIドリブンを参考）。</div>
+      </div>
+      <div class="sub-be">
+        <div style="font-weight:700;">③ 他のコーチが気づく前に始められる＝先行者になれる</div>
+        <div class="fact"><b>FACT：</b>半年・週1で「装置を作りきって卒業」する期間プログラム。</div>
+      </div>
+    </div>
+
+    <!-- 3 layers -->
+    <div class="panel" style="margin-top:14px;">
+      <p class="panel-title">スクールの仕組み（商品の見せ方）</p>
+      <div class="layers">
+        <div class="ly l1"><div class="lh">① 前撮り動画</div><p>薄く広く。講師が張り付かなくていい＝質が一定でスケール。</p></div>
+        <div class="ly l2"><div class="lh">② 受講生ワーク</div><p>中核。自分の事業に落とす。「設計できる」を実物にする。</p></div>
+        <div class="ly l3"><div class="lh">③ 1on1コンサル</div><p>濃く高く。希望者だけの上位オプション。超高単価。</p></div>
+      </div>
+      <p style="font-size:12.5px;color:var(--muted);margin:12px 0 0;">半年・週1・オンライン＋自主学習アプリ。メインは「動画＋ワーク」、1on1は上に乗る別オプション。</p>
+    </div>
+  </section>
+
+  <!-- まとめ -->
+  <section class="reveal">
+    <div class="sec-head"><div class="sec-ic ic-blue">☑</div><h2>まとめ — 4Cとスクールの全体像</h2></div>
+    <div class="sumcard s1"><p class="sh"><span class="cc">C1</span>CUSTOMER — 食えるけど将来が不安</p><p>食えてはいるが、ゴルファー減・集客不安定・単価を上げられず、将来が不安。集客を安定させたい。</p></div>
+    <div class="sumcard s2"><p class="sh"><span class="cc">C2</span>COMPETITOR — 装置の作り方は誰も教えない</p><p>PGA・USGTFは指導だけ、マーケコンサルは机上だけ。「実際に回るSNS集客装置」は手に入らない。</p></div>
+    <div class="sumcard s3"><p class="sh"><span class="cc">C3</span>COMPANY — 装置を作って回してきた</p><p>SNS集客をやり切り（20万人で独立）、スクール運営まで成立（3店舗全黒字）。5,000人で月100万を実証。</p></div>
+    <div class="sumcard s4"><p class="sh"><span class="cc">C4</span>CONCEPT — SNS集客装置で抜け駆けろ</p><p>不安の答えは「集客に困らないSNS集客装置」。しかも他より先に。動いた者が先行者利益を取る。</p></div>
+    <div class="essence">
+      <div class="fl">⚑</div>
+      <h3>インサイト型ストーリーの本質</h3>
+      <p>強いコンセプトは「商品の説明」ではなく、<b>「当事者の物語の続き」</b>です。このスクールは、コーチが抱える<b>「食えるけど、将来が不安」</b>という本音を起点に、競合の盲点（＝装置を誰も教えない）を突き、<b>SNS集客装置で先行する</b>という一本のストーリーで設計されています。</p>
+    </div>
+  </section>
+
+</div>
+
+<p class="foot">TERAコーチスクール コンセプト図解（社内議論用・たたき台）｜ コピー・価格は叩き台、第1回での合意をもって確定。数値は要・最終確認。実在の参照人物は特定を避け属性のみで記載。</p>
+
+<script>
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:.12});
+    els.forEach(function(e){io.observe(e);});
+  })();
+</script>
+</body>
+</html>
